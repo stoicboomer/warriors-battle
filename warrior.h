@@ -13,9 +13,7 @@ using namespace std;
 
 class Warrior{
 
-
 protected:
-	
 	//base stats
 	string _nickname; 
 	int    _HP; 
@@ -44,11 +42,8 @@ public:
 	int defense();
 	int parry();
 
-
-
-
-
 };
+
 
 
 #endif

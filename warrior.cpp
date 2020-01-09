@@ -31,7 +31,8 @@ void Warrior::stats(){
 	cout << "--- Warrior stats ---" << endl <<
 		"Name: " << _nickname << endl <<
 		"HP: " << _HP << endl <<
-		"DPT: " << _DPT << endl;
+		"DPT: " << _DPT << endl <<
+		"---------------------" << endl;
 }
 
 bool Warrior::is_alive(){
@@ -52,6 +53,28 @@ bool Warrior::is_stunned() { return onStun; }
 
 int Warrior::attack(Warrior &target){
 
+	srand(time(NULL));
+
+	if (this -> onStun){
+
+		if ( (rand() % 10) == 1){ // chance of ignoring stun is 1%
+			
+			int dmg = _DPT * 0.7;
+			cout << _nickname << " manages to attack while stunned " << target._nickname <<
+				" for " << dmg << "HP!" << endl;
+			
+			target._HP -= dmg;
+			return _DPT;
+		}
+
+		else{
+
+			cout << _nickname << " is stunned and can't attack!" << endl;
+			return 0;
+		}
+
+	}
+
 	if (target.onDefense){ //the defense stance reduces the damage taken
 		
 		target.onDefense = false;
@@ -59,7 +82,6 @@ int Warrior::attack(Warrior &target){
 
 		target._HP -= dmg;
 
-		cout << target._nickname << " enters in a defensive stance!" << endl;
 		cout << _nickname << " attacks " << target._nickname << " for " << dmg << "HP!" << endl;
 		return dmg;
 	}
@@ -67,21 +89,43 @@ int Warrior::attack(Warrior &target){
 	if (target.onParry){
 
 		target.onParry = false;
+
+		if ( (rand() % 10) <= 5 ){ //chance of parry is 50%
+
+			cout << _nickname << " attack gets parried and he's now stunned!" << endl;
+			this -> onStun = true; //the attacker gets stunned
+
+			return 0;
+		}
+
+		else{
+			
+			cout << target._nickname << " parry fails and " << _nickname << " attacks him for " <<
+				_DPT << "HP!" << endl;
+
+			return _DPT;
+
+		}
+	}
+	
+	//direct attack
+	else{
+
+		cout << _nickname << " attacks " << target._nickname << " for " << _DPT << "HP!" << endl;
+
 	}
 
-	cout << _nickname << " attacked " <<target._nickname << " for " << _DPT << "HP!" << endl;
-	target._HP -= _DPT;
-
-	return _DPT;
 }
 
 int Warrior::defense(){
 
+	cout << _nickname << " enters in a defensive stance!" << endl;
 	onDefense = true;
 }
 
 int Warrior::parry(){
 	
+	cout << _nickname << " prepares for a parry!" << endl;
 	onParry = true;
 }
 
