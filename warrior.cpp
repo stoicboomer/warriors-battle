@@ -57,7 +57,7 @@ int Warrior::attack(Warrior &target){
 
 	if (this -> onStun){
 
-		if ( (rand() % 10) == 1){ // chance of ignoring stun is 1%
+		if ( (rand() % 10) == 1){ // chance of ignoring stun is 10%
 			
 			int dmg = _DPT * 0.7;
 			cout << _nickname << " manages to attack while stunned " << target._nickname <<

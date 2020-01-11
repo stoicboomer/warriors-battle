@@ -44,6 +44,26 @@ public:
 
 };
 
+/*
+		BERSERK THE UNSTOPPABLE
+This warrior is a tough one, he doesn't stop at anything!
+Equipped with his greatsword he slash everything he sees!
+The more damage he takes the more furious becomes!!
+When he's under 40% of life he enters in his berserk mode,
+the damage increases and every attack adds one stack on
+the bleed meter.
+*/
+
+class Berserk : public Warrior{
+
+	bool rage = false;	
+
+
+};
+
+
+
+
 
 
 #endif

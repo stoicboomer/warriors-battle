@@ -12,14 +12,9 @@ int main(void){
 
 	Warrior sample("Immortal", 999999999, 0);
 
-	warrior1.attack(warrior2);
-	warrior2.attack(warrior2);
-	warrior1.parry();
-	warrior2.attack(warrior1);
-	warrior1.defense();
-	warrior2.attack(warrior1);
-	warrior1.attack(warrior2);
+	Berserk Guts;
 
+	cout <<	Guts.is_alive();
 
 
 	return 0;
