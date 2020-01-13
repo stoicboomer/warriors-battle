@@ -55,6 +55,10 @@ int Warrior::attack(Warrior &target){
 
 	srand(time(NULL));
 
+	//attacking changes your stance!
+	this -> onDefense = false;
+	this -> onParry	  = false;
+
 	if (this -> onStun){
 
 		if ( (rand() % 10) == 1){ // chance of ignoring stun is 10%
@@ -112,7 +116,7 @@ int Warrior::attack(Warrior &target){
 	else{
 
 		cout << _nickname << " attacks " << target._nickname << " for " << _DPT << "HP!" << endl;
-
+		target._HP -= _DPT;
 	}
 
 }

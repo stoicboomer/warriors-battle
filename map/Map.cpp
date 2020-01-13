@@ -27,6 +27,11 @@ void Map::fill(char symbol){
 	}
 }
 
+void Map::set(int row, int column, char symbol){
+
+	map[row][column] = symbol;
+}
+
 //print map
 void Map::print(){
 
@@ -48,4 +53,3 @@ void Map::print(){
 
 }
 
-//print map

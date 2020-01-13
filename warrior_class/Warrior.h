@@ -13,12 +13,13 @@ using namespace std;
 
 class Warrior{
 
-protected:
+public:
 	//base stats
 	string _nickname; 
 	int    _HP; 
 	int    _DPT; 
-	
+
+private:	
 	//special stats
 	bool onDefense = false;
 	bool onStun    = false;

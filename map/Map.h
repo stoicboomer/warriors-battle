@@ -18,8 +18,11 @@ public:
 	//constructor
 	Map(int _height, int _width);
 
-	//function methods
+	//map modifiers
 	void fill(char symbol);
+	void set(int , int , char );
+
+	//map visual
 	void print();
 	
 };
