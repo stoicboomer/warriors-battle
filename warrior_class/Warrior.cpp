@@ -1,6 +1,6 @@
 //warrior constructors/method functions!
 
-#include "warrior.h"
+#include "Warrior.h"
 
 //Warrior constructors
 Warrior :: Warrior(){

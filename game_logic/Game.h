@@ -2,7 +2,7 @@
 #define _GAME
 
 #include <string>
-#include "../warrior.h"
+#include "../warrior_class/Warrior.h"
 
 
 class Game{

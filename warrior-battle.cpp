@@ -1,5 +1,5 @@
 #include "game_logic/Game.h"
-#include "warrior-class/Warrior.h"
+#include "warrior_class/Warrior.h"
 
 int main(){
 
