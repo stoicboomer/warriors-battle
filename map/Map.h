@@ -13,12 +13,13 @@ protected:
 	int width;
 
 	string *map;
-	
+
 public:
 	//constructor
 	Map(int _height, int _width);
 
 	//map modifiers
+	char padding;
 	void fill(char symbol);
 	void set(int , int , char );
 

@@ -6,7 +6,10 @@ A simple command-line battle with warriors uuuh i'm too lazy to make a proper RE
 
 # compile
 
-compile demo with:
+compile:
+
+
 	g++ warrior-battle.cpp game_logic/Game.cpp warrior_class/Warrior.cpp
+
 
 

@@ -17,19 +17,20 @@ Map :: Map(int _height, int _width){
 //function methods
 
 //fill the created map with the given simbol
-void Map::fill(char symbol){
+void Map::fill(char letter){
 
+	padding = letter;
 	for (int row = 0; row < height; row++){
 		for (int column = 0; column < width; column++){
 
-			map[row][column] = symbol;
+			map[row][column] = letter;
 		}
 	}
 }
 
-void Map::set(int row, int column, char symbol){
+void Map::set(int row, int column, char letter){
 
-	map[row][column] = symbol;
+	map[row][column] = letter;
 }
 
 //print map

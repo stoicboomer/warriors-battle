@@ -6,8 +6,14 @@ int main(){
 	Warrior p1("Exodus", 50, 12);
 	Warrior p2("Witcher", 56, 10);
 
-	Game fight(p1, p2);
-	fight.start();
+	Map arena(5, 5);
+
+	arena.fill('*');
+	arena.print();
+
+	p1.move(arena , 2, 2);
+	arena.print();
+
 
 	return 0;
 }

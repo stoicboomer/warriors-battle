@@ -7,6 +7,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include "../map/Map.h"
 
 
 using namespace std;
@@ -18,6 +19,9 @@ public:
 	string _nickname; 
 	int    _HP; 
 	int    _DPT; 
+
+	int X_pos;
+	int Y_pos;
 
 private:	
 	//special stats
@@ -42,6 +46,9 @@ public:
 	int attack(Warrior &target);	
 	int defense();
 	int parry();
+
+	//warrior movement
+	void move(Map &map, int x_pos, int y_pos);
 
 };
 
