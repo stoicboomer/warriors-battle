@@ -11,8 +11,17 @@ int main(){
 	arena.fill('*');
 	arena.print();
 
-	p1.move(arena , 2, 2);
-	arena.print();
+	int y, x;
+
+	while (1){
+
+		arena.print();
+
+		cin >> y >> x;
+		p1.move(arena, y, x);
+
+	}
+
 
 
 	return 0;

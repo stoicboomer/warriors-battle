@@ -134,13 +134,23 @@ int Warrior::parry(){
 
 
 //player movement
-void Warrior::move(Map &map, int x_pos, int y_pos){
-	
-	//old position of player(x  y) gets resetted
+void Warrior::move(Map &map, int y_pos, int x_pos){
+
+	//old position of player(y  x) gets resetted
 	static int current[2] = {0, 0};
 	map.set(current[0], current[1], map.padding);	
 
 	//new position
 	map.set(y_pos, x_pos, 'A');
-	cout << _nickname << " moves to " << x_pos << ":" << y_pos << endl;
+	
+	cout << _nickname << " moves to " << y_pos << ":" << x_pos << endl;
+	current[0] = y_pos;
+	current[1] = x_pos;
 }
+
+
+
+
+
+
+
