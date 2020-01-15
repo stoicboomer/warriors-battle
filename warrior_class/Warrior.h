@@ -19,7 +19,13 @@ public:
 	string _nickname; 
 	int    _HP; 
 	int    _DPT; 
+	
+	//buffs
+	const int staminaMax = 75;
+	int staminaBar = staminaMax;
+	int bleedBar   = 0;
 
+	//position
 	int X_pos;
 	int Y_pos;
 
@@ -39,8 +45,13 @@ public:
 	//profile info function methods
 	void stats();
 	bool is_alive();
+	bool is_exausted();
 	bool is_onDefense();
-	bool is_stunned();
+	bool is_onParry();
+	bool is_onStun();
+
+	//stamina handler
+	int addStamina(int value);
 	
 	//warrior actions function methods
 	int attack(Warrior &target);	
@@ -64,7 +75,9 @@ the bleed meter.
 
 class Berserk : public Warrior{
 
-	bool rage = false;	
+	bool rage = false;
+
+
 
 
 };

@@ -1,8 +1,7 @@
 TODO:
 
-	* Find a way to connect players to the map
-	* Introduce new classes for the warriors
-	* Stamina stat
-	* Improve output asthetic for the game
+	* Create fight with map logic (movment, range attacks etc.)
+	* Introduce new classes for the warriors\:
+	* Improve output asthetic for the game (more and more..)
 	* CODE!!
 	

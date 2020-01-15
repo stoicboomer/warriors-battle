@@ -3,25 +3,15 @@
 
 int main(){
 
-	Warrior p1("Exodus", 50, 12);
-	Warrior p2("Witcher", 56, 10);
+	Warrior p1("Exodus", 100, 12);
+	Warrior p2("Witcher", 100, 10);
 
-	Map arena(5, 5);
+	Warrior bruh("test", 999999999, 0);
 
-	arena.fill('*');
-	arena.print();
+	
+	Game game(p1, p2);
 
-	int y, x;
-
-	while (1){
-
-		arena.print();
-
-		cin >> y >> x;
-		p1.move(arena, y, x);
-
-	}
-
+	game.start();
 
 
 	return 0;
