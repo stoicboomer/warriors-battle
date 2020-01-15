@@ -6,12 +6,7 @@ A simple command-line battle with warriors uuuh i'm too lazy to make a proper RE
 
 # short-explanation
 
-Fight between 2 fighters, the gameplay is made out of turns, where the warrior choices the action to do like
-attack, defense, parry, where attacking deals damage and uses STAMINA, defendig reduces the damage taken and restores 
-some stamina and for last and not least parrying has a change to stun the enemy both the success or failure of parrying
-gives stamina.
+Fight between 2 fighters; gameplay is turn-based, where the warrior chooses his action between attack, defense, parry, where attacking deals damage and uses STAMINA, defending reduces the damage taken and restores some stamina, and last but not least parrying has a chance to stun the enemy; either succeeding and failing the parry gives stamina.
 
 Bruh i'll do a better read me in the future, sorry for the bad english me retarded.
-
-
 
