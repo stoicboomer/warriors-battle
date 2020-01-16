@@ -7,14 +7,12 @@ using namespace std;
 
 class Map{
 
-protected:
-
+	string *map;
+	
+public:
 	int height;
 	int width;
 
-	string *map;
-
-public:
 	//constructor
 	Map(int _height, int _width);
 

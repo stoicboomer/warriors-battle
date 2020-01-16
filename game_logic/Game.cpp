@@ -1,101 +1,102 @@
 #include "Game.h"
 
 
-Game::Game(Warrior &p1, Warrior &p2)
+Game::Game(Warrior &p1, Warrior &p2, Map _map)
 	: player1(p1), 
-	player2(p2)
-//	map(_map)
+	player2(p2),
+	map(_map)
 {}
 
 void Game::start(){
 
 	int turn = 0;
-	int action;
+	char action;
+
+		Warrior &player(turn % 2 == 0 ? player1 : player2);
+		player.spawn(map, 3);
+
+		Warrior &opponent(turn % 2 == 0 ? player2 : player1);
+		opponent.spawn(map, 4);
 
 	while (player1.is_alive() && player2.is_alive()){	
-		
+
 		Warrior &player(turn % 2 == 0 ? player1 : player2);
 		Warrior &opponent(turn % 2 == 0 ? player2 : player1);
+		
+		char output[4096];
 
 
-		printf("+-----------------+-----------------+\n"
-		       "  %s                  %s  	    \n"
-		       "+-----------------+-----------------|\n"
-		       "|		  |		    |\n"
-		       "|HP:%d		  |HP:%d           |\n"
-		       "|Stamina:%d      |Stamina:%d      |\n"
-		       "|DMG:%d		  |DMG:%d           |\n"	
-		       //"|		  |		    |\n"
-		       "+-----------------------------------+\n",
-		       player1._nickname.c_str(), player2._nickname.c_str(),
-		       player1._HP, player2._HP,
-		       player1.staminaBar, player2.staminaBar,
-		       player1._DPT, player2._DPT);
+		map.print();
+		cout << "[" << player1._nickname << "][" << player1.symbol << "]\t"
+		     << "[" << player2._nickname << "][" << player2.symbol << "]" <<  endl 
+		     << "HP:" << player1._HP << "\t\t"          << "HP:" << player2._HP << endl 
+		     << "STAMINA:" << player1.staminaBar << "\t"<< "STAMINA:" << player2.staminaBar << endl 
+		     << "DMG:" << player1._DPT << "\t\t"	<< "DMG:" << player2._DPT << endl;
 
 	
 CHOICE:
-		cout << "(1 - attack | 2 - defense | 3 - parry)" << player._nickname << ":";
-		cin  >> action;
-		cout << endl << endl;
+		cout << "(1 - attack  | 2 - defense | 3 - parry)" << endl
+		     << "(     W-A-S-D keys to move player     )" << player._nickname << ":";
+		cin >> action;
+		for (int i = 0; i < 50; i++){
+			cout << endl;
+		}
 
 		switch(action){
 
 			//actions
-			case 1:
+			case '1':
 				player.attack(opponent);
-				if (player.is_exausted() && (opponent.is_onDefense() || opponent.is_onParry())){
-					opponent.addStamina(25);
-				}
 				break;
-			case 2:
+			case '2':
 				player.defense();   //no attacks
-				if (opponent.is_onDefense() || opponent.is_onParry()){
-					opponent.addStamina(25);
-				}
+				if (opponent.is_onDefense() || opponent.is_onParry()) opponent.addStamina(25);
 				break;
-			case 3:
+			case '3':
 				player.parry();
-				if (opponent.is_onDefense() || opponent.is_onParry()){ 
-					opponent.addStamina(25);
-				}
+				if (opponent.is_onDefense() || opponent.is_onParry()) opponent.addStamina(25);
 				break;
-/*
+
 			//movement
-			case 'w' || 'W': //forward
-				player.Y_pos -= 1;
-				player.move(map, player.Y_pos, player.X_pos);
+			case 'w': //forward
+				cout << "w";
+				player.move(map, 'w');
+				if (opponent.is_onDefense() || opponent.is_onParry()) opponent.addStamina(25);
 				break;
 
-			case 's' || 'S': //back
-				player.Y_pos += 1;
-				player.move(map, player.Y_pos, player.X_pos);
+			case 's': //back
+				cout << "s";
+				player.move(map, 's');
+				if (opponent.is_onDefense() || opponent.is_onParry()) opponent.addStamina(25);
 				break;
 
-			case 'a' || 'A': //left
-				player.X_pos -= 1;
-				player.move(map, player.Y_pos, player.X_pos);
+			case 'a': //left
+				cout << "a";
+				player.move(map, 'a');
+				if (opponent.is_onDefense() || opponent.is_onParry()) opponent.addStamina(25);
 				break;
 
-			case 'd' || 'D': //right
-				player.X_pos += 1;
-				player.move(map, player.Y_pos, player.X_pos);
+			case 'd': //right
+				cout << "d";
+				player.move(map, 'd');
+				if (opponent.is_onDefense() || opponent.is_onParry()) opponent.addStamina(25);
 				break;
-*/
+
 			default:
-				cout << "Invalid choice!" << endl;
+				cout << "invalid choice! -> " << action << endl;
 				goto CHOICE;
 		}
 
+		cout << player.Y_pos << ":" << player.X_pos << endl;
 		turn++;
 	}
 
 	if (player1.is_alive()){
-		cout << player1._nickname << " wins the fight!" << turn << endl;
+		cout << "***** " << player1._nickname << " wins the fight!******" << turn << endl;
 	}
 	else{
-		cout << player2._nickname << " wins the fight!" << turn  << endl;
+		cout << "****** " << player2._nickname << " wins the fight!******" << turn  << endl;
 	}
 
-	
 }
 

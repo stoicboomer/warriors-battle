@@ -3,14 +3,16 @@
 
 int main(){
 
-	Warrior p1("Exodus", 100, 12);
-	Warrior p2("Witcher", 100, 10);
+	//create warrior objects
+	Warrior p1("Exodus", 100, 10, 'E');
+	Warrior p2("Witcher", 100, 10, 'W');
 
-	Warrior bruh("test", 999999999, 0);
+	//create fight map
+	Map arena(6, 5);
+	arena.fill('*');
 
-	
-	Game game(p1, p2);
-
+	//start game
+	Game game(p1, p2, arena);
 	game.start();
 
 

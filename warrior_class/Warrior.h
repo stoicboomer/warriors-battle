@@ -26,8 +26,10 @@ public:
 	int bleedBar   = 0;
 
 	//position
-	int X_pos;
-	int Y_pos;
+	char symbol;
+	int old_pos[2] = {0, 0};
+	int Y_pos = 0; // y  x 
+	int X_pos = 0;
 
 private:	
 	//special stats
@@ -41,6 +43,7 @@ public:
 	Warrior();
 	Warrior(int HP, int DPT);
 	Warrior(string nickname, int HP, int DPT);
+	Warrior(string nickname, int HP, int DPT, char s);
 
 	//profile info function methods
 	void stats();
@@ -59,7 +62,9 @@ public:
 	int parry();
 
 	//warrior movement
-	void move(Map &map, int x_pos, int y_pos);
+	bool is_onRange(Warrior &target, int range);
+	int move(Map &map, char direction);
+	int spawn(Map &map, int corner);
 
 };
 
