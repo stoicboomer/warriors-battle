@@ -1,0 +1,5 @@
+#!/bin/bash
+#Won't use makefile because i'm too based for that
+
+gcc src/maingame.c src/warrior.c src/win.c src/colors.c -o warriors-battle -lncurses
+
